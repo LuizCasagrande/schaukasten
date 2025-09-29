@@ -1,0 +1,56 @@
+<div class="flex flex-column align-items-center justify-content-center text-gray-200 h-full">
+  <h1 class="text-3xl">Hi 👋, I'm {{ personalInfo.name }}</h1>
+  <h2 class="text-2xl">A Software Engineer from Brazil</h2>
+  <div>
+    <a [href]="personalInfo.github" target="_blank">
+      <p-button [text]="true" icon="pi pi-github" size="large"/>
+    </a>
+    <a [href]="personalInfo.linkedin" target="_blank">
+      <p-button [text]="true" icon="pi pi-linkedin" size="large"/>
+    </a>
+    <a href="mailto:{{personalInfo.email}}">
+      <p-button [text]="true" icon="pi pi-envelope" size="large"/>
+    </a>
+  </div>
+  <p class="text-xl font-bold">Scroll down to see my projects 👇</p>
+</div>
+
+@if (loaded()) {
+  <div class="showcase">
+    <div class="showcase-item">
+      <div class="flex flex-wrap justify-content-center text-center text-gray-200 mx-3 md:mx-8">
+        @for (repo of repos; track $index) {
+          <div class="col-12 xl:col-6 xxl:col-4">
+            <div class="border-2 border-round-xl blur-background flex flex-column justify-content-between h-20rem">
+              <div class="mx-4">
+                <p class="text-xl font-bold">{{ repo.name | titlecase }}</p>
+                <span class="text-lg">&emsp;{{ repo.description }}</span>
+              </div>
+              <div class="flex pb-3 sm:pb-4">
+                <div class="w-6 pr-5 flex flex-column align-items-end">
+                  <span>Languages:</span>
+                  <div class="mt-2">
+                    @for (language of repo.languages; track $index) {
+                      <span class="block" [style]="{color: language.color}">{{ language.name }}</span>
+                    }
+                  </div>
+                </div>
+                <div class="w-6 pl-5 flex flex-column align-items-start">
+                  <a [href]="repo.url" target="_blank">
+                    <p-button [text]="true" icon="pi pi-external-link" label="Github"/>
+                  </a>
+                  @if (repo.homepageUrl) {
+                    <a [href]="repo.homepageUrl" target="_blank" class="block">
+                      <p-button [text]="true" icon="pi pi-external-link" label="Deployment"/>
+                    </a>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="h-2rem sm:hidden"></div>
+}

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+
+html, body {
+  margin: 0;
+  height: 100dvh;
+  font-family: 'Quicksand', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  user-select: none;
+}
+
+* {
+  outline: none !important;
+}
+
+.blur-background {
+  backdrop-filter: blur(5px);
+}
+
+.showcase {
+  height: 100%;
+  display: table;
+}
+
+.showcase-item {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 1600px) {
+  .xxl\:col-4 {
+    flex: 0 0 auto;
+    padding: .5rem;
+    width: 33.33%;
+  }
+}
