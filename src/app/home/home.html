@@ -21,13 +21,13 @@
       <div class="flex flex-wrap justify-content-center text-center text-gray-200 mx-3 md:mx-8">
         @for (repo of repos; track $index) {
           <div class="col-12 xl:col-6 xxl:col-4">
-            <div class="border-2 border-round-xl blur-background flex flex-column justify-content-between h-20rem">
+            <div class="border-2 border-round-xl blur-bg flex flex-column justify-content-between h-22rem sm:h-20rem">
               <div class="mx-4">
                 <p class="text-xl font-bold">{{ repo.name | titlecase }}</p>
                 <span class="text-lg">&emsp;{{ repo.description }}</span>
               </div>
               <div class="flex pb-3 sm:pb-4">
-                <div class="w-6 pr-5 flex flex-column align-items-end">
+                <div class="w-6 pr-3 sm:pr-5 flex flex-column align-items-end">
                   <span>Languages:</span>
                   <div class="mt-2">
                     @for (language of repo.languages; track $index) {
@@ -35,7 +35,7 @@
                     }
                   </div>
                 </div>
-                <div class="w-6 pl-5 flex flex-column align-items-start">
+                <div class="w-6 pl-3 sm:pl-5 flex flex-column align-items-start">
                   <a [href]="repo.url" target="_blank">
                     <p-button [text]="true" icon="pi pi-external-link" label="Github"/>
                   </a>
